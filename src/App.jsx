@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+import Aurora from "./components/Aurora";
+import FloatingHearts from "./components/FloatingHearts";
 import Background from "./components/Background";
 import GlassCard from "./components/GlassCard";
 import Cat from "./components/Cat";
@@ -30,6 +31,8 @@ function App() {
   return (
     <>
       <Background />
+      <Aurora />
+      <FloatingHearts />
 
       <div className="app">
         <div className="glow"></div>
