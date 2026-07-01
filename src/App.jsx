@@ -9,7 +9,6 @@ import FriendshipBar from "./components/FriendshipBar";
 import "./index.css";
 
 function App() {
-
   const [awake, setAwake] = useState(false);
 
   const [friendship, setFriendship] = useState(() => {
@@ -21,11 +20,11 @@ function App() {
   }, [friendship]);
 
   function wakeKitten() {
-    setAwake(true);
-
-    if (friendship === 0) {
-      setFriendship(5);
+    if (!awake) {
+      setAwake(true);
     }
+
+    setFriendship((prev) => Math.min(prev + 5, 100));
   }
 
   return (
@@ -33,15 +32,15 @@ function App() {
       <Background />
 
       <div className="app">
-
         <div className="glow"></div>
 
         <GlassCard>
-
           <h1 className="title">✨ LovePet ✨</h1>
 
           <p className="subtitle">
             Made with ❤️ by Adi
+            <br />
+            For Sam 🌸
           </p>
 
           <Cat awake={awake} />
@@ -56,9 +55,7 @@ function App() {
           >
             {awake ? "❤️ Welcome Sam ❤️" : "✨ Wake Me Up"}
           </button>
-
         </GlassCard>
-
       </div>
     </>
   );
