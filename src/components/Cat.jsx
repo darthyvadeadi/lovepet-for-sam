@@ -1,24 +1,31 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-export default function Cat({ awake }) {
-  const image = awake
-    ? "/images/kitten_happy.png"
-    : "/images/kitten_sleep.png";
+function Cat({ image }) {
+  const [displayImage, setDisplayImage] = useState(image);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    if (image === displayImage) return;
+
+    setFade(false);
+
+    const changeTimer = setTimeout(() => {
+      setDisplayImage(image);
+      setFade(true);
+    }, 180);
+
+    return () => clearTimeout(changeTimer);
+  }, [image, displayImage]);
 
   return (
-    <motion.img
-      src={image}
-      alt="Kitten"
-      className="cat"
-      animate={{
-        y: [0, -8, 0],
-        scale: [1, 1.03, 1],
-      }}
-      transition={{
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    />
+    <div className="cat-container">
+      <img
+        src={displayImage}
+        alt="LovePet"
+        className={`cat ${fade ? "fade-in" : "fade-out"}`}
+      />
+    </div>
   );
 }
+
+export default Cat;

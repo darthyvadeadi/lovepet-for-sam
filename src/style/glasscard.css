@@ -1,0 +1,64 @@
+.glasscard {
+  position: relative;
+
+  width: min(90vw, 520px);
+
+  padding: 35px;
+
+  border-radius: 28px;
+
+  background: rgba(255,255,255,.08);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,.15);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.35),
+    0 0 40px rgba(140,70,255,.15);
+
+  overflow: hidden;
+
+  transition: .35s;
+}
+
+.glass-card:hover{
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.45),
+    0 0 70px rgba(170,90,255,.25);
+
+}
+
+.glass-shine{
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      130deg,
+      transparent 20%,
+      rgba(255,255,255,.10) 45%,
+      transparent 70%
+    );
+
+  transform:translateX(-120%);
+
+  animation:shine 8s infinite;
+
+}
+
+@keyframes shine{
+
+  to{
+
+    transform:translateX(120%);
+
+  }
+
+}
