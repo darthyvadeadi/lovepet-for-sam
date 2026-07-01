@@ -1,0 +1,471 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  overflow:hidden;
+  font-family:Poppins,sans-serif;
+  background:#12022f;
+  color:white;
+}
+
+#root{
+  width:100vw;
+  height:100vh;
+}
+
+.app{
+  width:100%;
+  height:100vh;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  position:relative;
+  z-index:2;
+}
+
+/* ---------------- Background ---------------- */
+
+.background{
+  position:fixed;
+  inset:0;
+
+  background:
+  radial-gradient(circle at top,#7b2ff7,#18002f 55%,#05010f);
+
+  z-index:-3;
+}
+
+/* ---------------- Aurora ---------------- */
+
+.aurora{
+  position:fixed;
+  width:700px;
+  height:700px;
+
+  border-radius:50%;
+
+  filter:blur(140px);
+
+  opacity:.22;
+
+  z-index:-2;
+
+  animation:auroraMove 15s ease-in-out infinite alternate;
+}
+
+.aurora1{
+  background:#8b5cf6;
+  top:-250px;
+  left:-150px;
+}
+
+.aurora2{
+  background:#ff66cc;
+  bottom:-250px;
+  right:-150px;
+  animation-delay:5s;
+}
+
+@keyframes auroraMove{
+
+from{
+transform:translate(0,0) scale(1);
+}
+
+to{
+transform:translate(120px,-60px) scale(1.3);
+}
+
+}
+
+/* ---------------- Stars ---------------- */
+
+.star{
+
+position:fixed;
+
+width:2px;
+height:2px;
+
+border-radius:50%;
+
+background:white;
+
+box-shadow:
+0 0 8px white,
+0 0 16px #ffd6ff;
+
+animation:twinkle infinite ease-in-out;
+
+}
+
+@keyframes twinkle{
+
+0%{
+opacity:.2;
+transform:scale(.8);
+}
+
+50%{
+opacity:1;
+transform:scale(1.7);
+}
+
+100%{
+opacity:.2;
+transform:scale(.8);
+}
+
+}
+
+/* ---------------- Hearts ---------------- */
+
+.heart{
+
+position:fixed;
+
+bottom:-60px;
+
+pointer-events:none;
+
+z-index:-1;
+
+animation:floatHeart linear infinite;
+
+}
+
+.heartShape{
+
+position:relative;
+
+width:22px;
+height:22px;
+
+background:#ff6fae;
+
+transform:rotate(-45deg);
+
+box-shadow:
+0 0 12px #ff6fae,
+0 0 25px #ff8ac5,
+0 0 45px #ffb3dd;
+
+animation:
+pulseHeart 2.5s ease-in-out infinite,
+spinHeart 12s linear infinite;
+
+}
+
+.heartShape::before,
+.heartShape::after{
+
+content:"";
+
+position:absolute;
+
+width:22px;
+height:22px;
+
+background:inherit;
+
+border-radius:50%;
+
+}
+
+.heartShape::before{
+top:-11px;
+left:0;
+}
+
+.heartShape::after{
+left:11px;
+top:0;
+}
+
+@keyframes pulseHeart{
+
+0%,100%{
+transform:rotate(-45deg) scale(.9);
+opacity:.5;
+}
+
+50%{
+transform:rotate(-45deg) scale(1.25);
+opacity:1;
+}
+
+}
+
+@keyframes spinHeart{
+
+from{
+rotate:0deg;
+}
+
+to{
+rotate:360deg;
+}
+
+}
+
+@keyframes floatHeart{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+90%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+
+}
+
+/* ---------------- Glow ---------------- */
+
+.glow{
+
+position:absolute;
+
+width:500px;
+height:500px;
+
+background:#a855f7;
+
+opacity:.18;
+
+filter:blur(120px);
+
+border-radius:50%;
+
+pointer-events:none;
+
+animation:pulse 5s infinite;
+
+}
+
+@keyframes pulse{
+
+0%,100%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.15);
+}
+
+}
+
+/* ---------------- Kitten ---------------- */
+
+.cat{
+
+width:280px;
+
+animation:floatCat 4s ease-in-out infinite;
+
+}
+
+@keyframes floatCat{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+/* ---------------- Text ---------------- */
+
+.speech{
+
+margin-top:20px;
+
+font-size:2rem;
+
+font-weight:500;
+
+text-shadow:0 0 15px rgba(255,255,255,.3);
+
+}
+
+/* ---------------- Button ---------------- */
+
+.wakeBtn{
+
+margin-top:30px;
+
+padding:18px 42px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:20px;
+
+font-weight:700;
+
+background:white;
+
+color:#7b2ff7;
+
+transition:.3s;
+
+box-shadow:
+0 0 20px rgba(255,255,255,.3),
+0 0 45px rgba(168,85,247,.35);
+
+}
+
+.wakeBtn:hover{
+
+transform:scale(1.06);
+
+box-shadow:
+0 0 30px white,
+0 0 60px #c084fc;
+
+}
+
+/* ========================= */
+/* Glass Card */
+/* ========================= */
+
+.glassCard{
+
+width:420px;
+
+padding:40px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 40px rgba(168,85,247,.15);
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:18px;
+
+animation:fadeUp .8s ease;
+}
+
+.title{
+
+font-size:2.4rem;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+text-shadow:
+0 0 20px rgba(255,255,255,.25);
+
+}
+
+.subtitle{
+
+opacity:.8;
+
+font-size:.95rem;
+
+margin-bottom:10px;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ========================= */
+/* Friendship Bar            */
+/* ========================= */
+
+.friendshipContainer{
+  width:100%;
+  margin-top:20px;
+}
+
+.friendshipHeader{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:8px;
+  font-size:15px;
+  font-weight:600;
+}
+
+.friendshipTrack{
+  width:100%;
+  height:14px;
+
+  border-radius:30px;
+
+  background:rgba(255,255,255,.12);
+
+  overflow:hidden;
+}
+
+.friendshipFill{
+
+  height:100%;
+
+  border-radius:30px;
+
+  background:linear-gradient(
+      90deg,
+      #ff4f8b,
+      #ff7ac3
+  );
+
+  box-shadow:
+      0 0 12px #ff7ac3,
+      0 0 24px #ff5aa5;
+
+  transition:width .5s ease;
+}
