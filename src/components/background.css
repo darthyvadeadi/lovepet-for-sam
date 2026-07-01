@@ -1,0 +1,194 @@
+/* ===========================
+   LOVEPET PREMIUM BACKGROUND
+   =========================== */
+
+.background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -10;
+
+  background:
+    radial-gradient(circle at top, #2b0d5f 0%, #16052f 45%, #090014 100%);
+}
+
+/* ---------- STARS ---------- */
+
+.stars {
+  position: absolute;
+  inset: 0;
+}
+
+.star {
+  position: absolute;
+
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+    0 0 6px white,
+    0 0 12px #ffffff;
+
+  animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: .25;
+    transform: scale(.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(2);
+  }
+}
+
+/* ---------- AURORA ---------- */
+
+.auroraWrapper {
+  position: fixed;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: -9;
+}
+
+.auroraBlob {
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  border-radius: 50%;
+
+  filter: blur(150px);
+
+  opacity: .28;
+
+  animation: floatAurora 20s linear infinite;
+}
+
+.blob1 {
+
+  background: #7c3aed;
+
+  top: -200px;
+  left: -120px;
+}
+
+.blob2 {
+
+  background: #d946ef;
+
+  right: -200px;
+  bottom: -150px;
+
+  animation-delay: -8s;
+}
+
+.blob3 {
+
+  background: #8b5cf6;
+
+  left: 35%;
+  top: 30%;
+
+  animation-delay: -15s;
+
+  opacity: .18;
+}
+
+@keyframes floatAurora {
+
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(120px, 60px);
+  }
+
+  50% {
+    transform: translate(60px, 180px);
+  }
+
+  75% {
+    transform: translate(-120px, 80px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* ---------- HEARTS ---------- */
+
+.heartsLayer {
+
+  position: fixed;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: -8;
+}
+
+.floatingHeart {
+
+  position: absolute;
+
+  bottom: -40px;
+
+  color: #ff70c8;
+
+  opacity: .35;
+
+  text-shadow:
+    0 0 10px #ff70c8,
+    0 0 20px #ff70c8;
+
+  animation: floatHeart linear infinite;
+}
+
+@keyframes floatHeart {
+
+  from {
+
+    transform:
+      translateY(0)
+      rotate(0deg);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: .45;
+  }
+
+  80% {
+    opacity: .45;
+  }
+
+  to {
+
+    transform:
+      translateY(-120vh)
+      rotate(360deg);
+
+    opacity: 0;
+  }
+}

@@ -1,6 +1,7 @@
 export default function GlassCard({ children }) {
   return (
-    <div className="glassCard">
+    <div className="glasscard">
+      <div className="glass-shine"></div>
       {children}
     </div>
   );
